@@ -3,7 +3,6 @@ package utils
 import (
 	"errors"
 	"sync"
-	"time"
 
 	"github.com/parnurzeal/gorequest"
 )
@@ -13,7 +12,7 @@ type SuperAgentPool struct {
 	agents chan *gorequest.SuperAgent
 }
 
-func NewSuperAgentPool(capacity int, sleepTime string) (*SuperAgentPool, error) {
+func NewSuperAgentPool(capacity int) (*SuperAgentPool, error) {
 	if capacity < 1 {
 		return nil, errors.New("invalid capacity")
 	}
@@ -29,8 +28,6 @@ func NewSuperAgentPool(capacity int, sleepTime string) (*SuperAgentPool, error) 
 		}
 
 		pool.agents <- agent
-		duration, _ := time.ParseDuration(sleepTime)
-		time.Sleep(duration)
 	}
 
 	return pool, nil
