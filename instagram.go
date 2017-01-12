@@ -1,8 +1,8 @@
 package instagram
 
 import (
-	"github.com/hieven/go-instagram/models"
-	"github.com/hieven/go-instagram/utils"
+	"github.com/masolin/go-instagram/models"
+	"github.com/masolin/go-instagram/utils"
 )
 
 type Instagram struct {

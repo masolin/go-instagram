@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/hieven/go-instagram/constants"
+	"github.com/masolin/go-instagram/constants"
 	"github.com/parnurzeal/gorequest"
 )
 

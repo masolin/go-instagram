@@ -1,4 +1,4 @@
-package: github.com/hieven/go-instagram
+package: github.com/masolin/go-instagram
 import:
 - package: github.com/parnurzeal/gorequest
   version: ^0.2.14

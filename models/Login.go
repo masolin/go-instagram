@@ -3,8 +3,8 @@ package models
 import (
 	"encoding/json"
 
-	"github.com/hieven/go-instagram/constants"
-	"github.com/hieven/go-instagram/utils"
+	"github.com/masolin/go-instagram/constants"
+	"github.com/masolin/go-instagram/utils"
 	"github.com/parnurzeal/gorequest"
 )
 
