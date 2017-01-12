@@ -3,6 +3,7 @@ package utils
 import (
 	"errors"
 	"sync"
+	"time"
 
 	"github.com/parnurzeal/gorequest"
 )
@@ -28,6 +29,7 @@ func NewSuperAgentPool(capacity int) (*SuperAgentPool, error) {
 		}
 
 		pool.agents <- agent
+		time.Sleep(500 * time.Millisecond)
 	}
 
 	return pool, nil
