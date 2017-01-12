@@ -48,7 +48,8 @@ func (ig Instagram) Login(sleep string) {
 	}
 
 	agentList := make([]*gorequest.SuperAgent, ig.AgentPool.Len(), ig.AgentPool.Len())
-	for i := 0; i < ig.AgentPool.Len(); i++ {
+	poolSize := ig.AgentPool.Len()
+	for i := 0; i < poolSize; i++ {
 		agent := ig.AgentPool.Get()
 		agentList[i] = agent
 	}
