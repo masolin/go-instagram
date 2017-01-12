@@ -13,11 +13,11 @@ type Instagram struct {
 	Thread    *models.Thread
 }
 
-func Create(username string, password string, poolSize int, sleep int) (*Instagram, error) {
+func Create(username string, password string, poolSize int, sleep string) (*Instagram, error) {
 	if poolSize < 1 {
 		poolSize = 1
 	}
-	pool, err := utils.NewSuperAgentPool(poolSize, sleep*1000)
+	pool, err := utils.NewSuperAgentPool(poolSize, sleep)
 	if err != nil {
 		return nil, err
 	}
