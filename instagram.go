@@ -7,6 +7,7 @@ import (
 
 	"github.com/masolin/go-instagram/models"
 	"github.com/masolin/go-instagram/utils"
+	"github.com/parnurzeal/gorequest"
 )
 
 type Instagram struct {
@@ -46,15 +47,18 @@ func (ig Instagram) Login(sleep string) {
 		return
 	}
 
+	agentList := make([]*gorequest.SuperAgent, ig.AgentPool.Len(), ig.AgentPool.Len())
 	for i := 0; i < ig.AgentPool.Len(); i++ {
+		agent := ig.AgentPool.Get()
+		agentList[i] = agent
+	}
+
+	for i, agent := range agentList {
 		if i != 0 {
 			time.Sleep(sleepDuration)
 		}
 
 		uuid := utils.GenerateUUID()
-
-		agent := ig.AgentPool.Get()
-		defer ig.AgentPool.Put(agent)
 
 		login := models.Login{
 			Csrftoken:         "missing",
@@ -67,5 +71,6 @@ func (ig Instagram) Login(sleep string) {
 		}
 
 		login.Login()
+		ig.AgentPool.Put(agent)
 	}
 }
