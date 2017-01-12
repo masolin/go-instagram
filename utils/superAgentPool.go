@@ -13,7 +13,7 @@ type SuperAgentPool struct {
 	agents chan *gorequest.SuperAgent
 }
 
-func NewSuperAgentPool(capacity int) (*SuperAgentPool, error) {
+func NewSuperAgentPool(capacity int, sleep int) (*SuperAgentPool, error) {
 	if capacity < 1 {
 		return nil, errors.New("invalid capacity")
 	}
